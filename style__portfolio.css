@@ -1,0 +1,411 @@
+
+/* start */
+
+:root {
+    --dark: #1D1D1D;
+    --white: #ffffff;
+    --grey1: #DBDBDB;
+    --grey2: #CECECE;
+    --grey3: #B4B4B4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    background: var(--white);
+    animation: fadeIn 0.5s ease;
+    opacity: 1;
+    transition: opacity 0.1s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 200;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 300;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: 200;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: 200;
+}
+
+/* header */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 16px 48px;
+    box-sizing: border-box;
+    background: var(--white);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    z-index: 100;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.header a {
+    color: var(--dark);
+    transition: opacity 0.3s ease;
+}
+
+.header a:hover {
+    opacity: 40%;
+}
+
+/* Логотип */
+
+.logo__white {
+    display: none;
+}
+
+.logo__black {
+    display: block;
+}
+
+.logo__white img,
+.logo__black img {
+    height: 34px;
+    width: auto;
+    display: block;
+}
+
+/* Ссылки */
+
+.header__text {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+}
+
+/* Иконки */
+
+.header__icon {
+    display: flex;
+    gap: 24px;
+}
+
+.header__icon img {
+    height: 20px;
+    filter: brightness(0);
+}
+
+/* Адаптация HEADER */
+
+/* Ноутбуки */
+
+@media (max-width: 1100px) {
+    .header__text {
+        gap: 24px;
+    }
+
+    .header__icon {
+        gap: 16px;
+    }
+}
+
+/* Планшеты */
+
+@media (max-width: 900px) {
+    .header {
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+
+    .header__text {
+        gap: 20px;
+    }
+
+    .header__icon {
+        gap: 14px;
+    }
+
+    .header a {
+        font-size: 16px;
+    }
+}
+
+/* Мобильная шапка */
+
+.header__menu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.header__menu img {
+    display: block;
+    width: 28px;
+    height: 28px;
+    filter: brightness(0);
+}
+
+/* Мобильное меню */
+
+.header__mobile-menu {
+    display: none;
+}
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 16px 24px;
+    }
+
+    .header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    /* Логотип */
+
+    .logo__white,
+    .logo__black {
+        order: 1;
+    }
+
+    /* Скрываем обычные ссылки и иконки */
+
+    .header__text,
+    .header__icon {
+        display: none !important;
+    }
+
+    /* Кнопка меню */
+
+    .header__menu {
+        display: block;
+        order: 2;
+        position: relative;
+        z-index: 3;
+        width: 28px;
+        height: 28px;
+    }
+
+    /* Панель меню */
+
+    .header__mobile-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 64px;
+
+        position: absolute;
+        top: -16px;
+        left: -24px;
+
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+
+        box-sizing: border-box;
+        padding: 100px 48px 48px;
+
+        background: var(--white);
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+
+        transition:
+            opacity 0.4s ease,
+            transform 0.4s ease,
+            visibility 0.4s;
+    }
+
+    /* Ссылки мобильного меню */
+
+    .header__mobile-links {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .header__mobile-links a {
+        color: var(--dark);
+        font-size: 28px;
+        font-weight: 300;
+        transition: opacity 0.3s ease;
+    }
+
+    .header__mobile-links a:hover {
+        opacity: 40%;
+    }
+
+    /* Иконки мобильного меню */
+
+    .header__mobile-icons {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+    }
+
+    .header__mobile-icons img {
+        width: 24px;
+        height: 24px;
+        filter: brightness(0);
+    }
+
+    /* Открытое меню */
+
+    header.menu-open .header__mobile-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    /* Логотип при открытом меню */
+
+    header.menu-open .logo__white {
+        display: none;
+    }
+
+    header.menu-open .logo__black {
+        display: block;
+    }
+
+    /* Крестик */
+
+    header.menu-open .header__menu img {
+        opacity: 0;
+    }
+
+    .header__menu::before,
+    .header__menu::after {
+        content: "";
+        position: absolute;
+        left: 2px;
+        top: 13px;
+        width: 24px;
+        height: 2px;
+        background: var(--dark);
+        opacity: 0;
+        transition: transform 0.3s ease;
+    }
+
+    header.menu-open .header__menu::before {
+        opacity: 1;
+        transform: rotate(45deg);
+    }
+
+    header.menu-open .header__menu::after {
+        opacity: 1;
+        transform: rotate(-45deg);
+    }
+}
+
+.portfolio {
+    width: calc(100vw - 96px);
+    max-width: 1320px;
+    height: auto;
+    margin: 148px auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+}
+
+.portfolio__container {
+    width: 100%;
+    min-width: 0;
+}
+
+.portfolio__container img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+.portfolio {
+    width: calc(100vw - 96px);
+    max-width: 1320px;
+    margin: 148px auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+}
+
+.portfolio h1 {
+    grid-column: 1 / -1;
+    margin: 0;
+}
+
+.portfolio__container {
+    width: 100%;
+    min-width: 0;
+}
+
+.portfolio__container img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+.portfolio__container h2 {
+    width: 100%;
+    margin: 24px 0 0;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+}
+
+@media (max-width: 900px) {
+    .portfolio {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .portfolio {
+        width: calc(100vw - 48px);
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin: 100px auto;
+    }
+}

@@ -1,0 +1,510 @@
+
+/* start */
+
+:root {
+    --dark: #1D1D1D;
+    --white: #ffffff;
+    --grey1: #DBDBDB;
+    --grey2: #CECECE;
+    --grey3: #B4B4B4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    background: var(--white);
+    animation: fadeIn 0.5s ease;
+    opacity: 1;
+    transition: opacity 0.1s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 200;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 300;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: 200;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: 200;
+}
+
+/* header */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 16px 48px;
+    box-sizing: border-box;
+    background: var(--white);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    z-index: 100;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.header a {
+    color: var(--dark);
+    transition: opacity 0.3s ease;
+}
+
+.header a:hover {
+    opacity: 40%;
+}
+
+.logo__white {
+    display: none;
+}
+
+.logo__black {
+    display: block;
+}
+
+.logo__white img,
+.logo__black img {
+    height: 34px;
+    width: auto;
+    display: block;
+}
+
+.header__text {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+}
+
+.header__icon {
+    display: flex;
+    gap: 24px;
+}
+
+.header__icon img {
+    height: 20px;
+    filter: brightness(0);
+}
+
+.header__mobile-menu {
+    display: none;
+}
+
+/* price */
+
+.price__text {
+    width: calc(100vw - 96px);
+    max-width: 1320px;
+    margin: 148px auto 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price__text a {
+    color: var(--dark);
+    text-decoration: none;
+    transition: opacity .3s ease;
+    opacity: 70%;
+}
+
+.price__text a:hover {
+    opacity: 30%;
+}
+
+.price__container {
+    width: calc(100vw - 96px);
+    max-width: 1320px;
+    height: auto;
+    margin: 0 auto 148px;
+    overflow: visible;
+    font-family: 'Inter', sans-serif;
+    color: var(--dark);
+}
+
+.price__description {
+    width: calc(100vw - 96px);
+    max-width: 1320px;
+    margin: -120px auto 148px;
+    text-align: right;
+    font-weight: 300;
+    opacity: 70%;
+}
+
+/* Таблица */
+
+.price__table {
+    width: 100%;
+    min-width: 0;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: clamp(12px, 1.25vw, 18px);
+}
+
+/* Шапка таблицы */
+
+.price__table thead {
+    background: var(--dark);
+    color: var(--white);
+}
+
+.price__table thead tr:first-child th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.price__table thead tr:first-child th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.price__table th {
+    height: 64px;
+    padding: 0 10px;
+    text-align: left;
+    vertical-align: middle;
+    font-size: clamp(12px, 1.25vw, 18px);
+    font-weight: 300;
+}
+
+/* Нижняя шапка */
+
+.price__table tfoot td {
+    height: 32px;
+    padding: 0;
+    background: var(--grey1);
+}
+
+/* Ячейки */
+
+.price__table td {
+    height: 64px;
+    padding: 0 10px;
+    text-align: left;
+    vertical-align: middle;
+    line-height: 1.4;
+    font-size: clamp(12px, 1.25vw, 18px);
+    font-weight: 200;
+    color: var(--dark);
+    overflow-wrap: break-word;
+}
+
+/* Первый столбец */
+
+.price__table th:first-child,
+.price__table td:first-child {
+    width: 68%;
+    padding-left: 24px;
+}
+
+/* Ширина колонок */
+
+.price__table th:nth-child(2),
+.price__table td:nth-child(2) {
+    width: 17%;
+}
+
+.price__table th:nth-child(3),
+.price__table td:nth-child(3) {
+    width: 15%;
+}
+
+/* Чередование цветов */
+
+.price__table tbody tr:nth-child(odd) {
+    background: var(--grey1);
+}
+
+.price__table tbody tr:nth-child(even) {
+    background: var(--grey2);
+}
+
+/* Подзаголовочные строки */
+
+.price__table .section__title td {
+    background: var(--grey3);
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 300;
+    padding: 0 24px;
+}
+
+/* Мобильная шапка */
+
+.header__menu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.header__menu img {
+    display: block;
+    width: 28px;
+    height: 28px;
+    filter: brightness(0);
+}
+
+@media (max-width: 1100px) {
+    .header__text {
+        gap: 24px;
+    }
+
+    .header__icon {
+        gap: 16px;
+    }
+}
+
+@media (max-width: 900px) {
+    .header {
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+
+    .header__text {
+        gap: 20px;
+    }
+
+    .header__icon {
+        gap: 14px;
+    }
+
+    .header a {
+        font-size: 16px;
+    }
+
+    .price__text {
+        gap: 24px;
+        align-items: flex-start;
+    }
+
+    .price__text h3 {
+        max-width: 50%;
+        text-align: right;
+    }
+}
+
+/* Телефоны */
+
+@media (max-width: 600px) {
+    header {
+        padding: 16px 24px;
+    }
+
+    .header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    .logo__white,
+    .logo__black {
+        order: 1;
+    }
+
+    .header__text,
+    .header__icon {
+        display: none !important;
+    }
+
+    .header__menu {
+        display: block;
+        order: 2;
+        position: relative;
+        z-index: 3;
+        width: 28px;
+        height: 28px;
+    }
+
+    /* Мобильное меню */
+
+    .header__mobile-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 64px;
+
+        position: absolute;
+        top: -16px;
+        left: -24px;
+
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+
+        box-sizing: border-box;
+        padding: 100px 48px 48px;
+
+        background: var(--white);
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+
+        transition:
+            opacity 0.4s ease,
+            transform 0.4s ease,
+            visibility 0.4s;
+    }
+
+    .header__mobile-links {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .header__mobile-links a {
+        color: var(--dark);
+        font-size: 28px;
+        font-weight: 300;
+        transition: opacity 0.3s ease;
+    }
+
+    .header__mobile-links a:hover {
+        opacity: 40%;
+    }
+
+    .header__mobile-icons {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+    }
+
+    .header__mobile-icons img {
+        width: 24px;
+        height: 24px;
+        filter: brightness(0);
+    }
+
+    header.menu-open .header__mobile-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    header.menu-open .logo__white {
+        display: none;
+    }
+
+    header.menu-open .logo__black {
+        display: block;
+    }
+
+    header.menu-open .header__menu img {
+        opacity: 0;
+    }
+
+    .header__menu::before,
+    .header__menu::after {
+        content: "";
+        position: absolute;
+        left: 2px;
+        top: 13px;
+        width: 24px;
+        height: 2px;
+        background: var(--dark);
+        opacity: 0;
+        transition: transform 0.3s ease;
+    }
+
+    header.menu-open .header__menu::before {
+        opacity: 1;
+        transform: rotate(45deg);
+    }
+
+    header.menu-open .header__menu::after {
+        opacity: 1;
+        transform: rotate(-45deg);
+    }
+
+    /* PRICE */
+
+    .price__text {
+        width: calc(100vw - 48px);
+        margin: 100px auto 40px;
+        gap: 16px;
+    }
+
+    .price__text h1 {
+        font-size: 20px;
+    }
+
+    .price__text h3 {
+        font-size: 12px;
+        max-width: 60%;
+    }
+
+    .price__container {
+        width: calc(100vw - 48px);
+        height: auto;
+        margin-bottom: 120px;
+        overflow: visible;
+    }
+
+    .price__table th,
+    .price__table td {
+        font-size: 12px;
+        padding: 0 6px;
+    }
+
+    .price__table th:first-child,
+    .price__table td:first-child {
+        padding-left: 12px;
+    }
+
+    .price__table .section__title td {
+        padding: 0 12px;
+    }
+
+    .price__description {
+        width: calc(100vw - 48px);
+        margin: -100px auto 100px;
+    }
+}
+.price__container::after {
+    content: "";
+    position: sticky;
+    display: block;
+    bottom: 0;
+    height: 60px;
+    margin-top: -60px;
+    pointer-events: none;
+    background: linear-gradient(
+        transparent,
+        var(--white)
+    );
+}
